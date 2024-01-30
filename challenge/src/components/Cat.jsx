@@ -17,7 +17,7 @@ export default function Cat({ id, url }) {
 
         const likedCats = JSON.parse(localStorage.getItem('likedCats')) || []
 
-        const isLiked = likedCats.includes(catId)
+        const isLiked = likedCats.some(e => e.id === catId)
 
         if (isLiked) {
             const updatedLikesCats = likedCats.filter(e => e.id !== catId)
