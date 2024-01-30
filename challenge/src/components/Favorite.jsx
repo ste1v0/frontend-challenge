@@ -4,11 +4,9 @@ export default function Favorite() {
 
     const [favorite, setFavorite] = useState(false)
     const [favorites, setFavorites] = useState([])
-    const [loading, setLoading] = useState(true)
 
     useEffect(function() {
         setFavorites(JSON.parse(localStorage.getItem("likedCats")) || [])
-        setLoading(false)
     }, [favorite])
     
     const heartFilled = {
