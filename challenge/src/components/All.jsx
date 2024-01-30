@@ -8,7 +8,7 @@ export default function All() {
     const [loading, setLoading] = useState(true)
     const [lazyLoad, setLazyLoad] = useState(false)
 
-    const secret = import.meta.env.API_KEY
+    const secret = import.meta.env.VITE_API_KEY
 
     useEffect(function() {
         window.addEventListener('scroll', handleScroll)
