@@ -13,7 +13,7 @@ export default function All() {
     useEffect(function() {
         window.addEventListener('scroll', handleScroll)
         setLoading(true)
-        fetch(`https://api.thecatapi.com/v1/images/search?limit=15&api_key=${secret}`)
+        fetch(`https://api.thecatapi.com/v1/images/search?limit=30&api_key=${secret}`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error('Uh, something is wrong with the request')
