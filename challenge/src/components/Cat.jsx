@@ -3,6 +3,15 @@ import { useState } from 'react'
 export default function Cat({ id, url }) {
 
     const [favorite, setFavorite] = useState(false)
+    const [isHovered, setIsHovered] = useState(false)
+
+    function handleHover() {
+        setIsHovered(true)
+    }
+
+    function handleUnhover() {
+        setIsHovered(false)
+    }
 
     const heartEmpty = {
         backgroundImage: `url('fav.svg')`
@@ -31,7 +40,7 @@ export default function Cat({ id, url }) {
     return (
         <>
             <div id={id} style={{backgroundImage: `url('${url}')`}} className="cats__cat-pic">
-                <div style={favorite ? heartFilled : heartEmpty} className="cats__cat-heart" onClick={() => handleClick(id, url)}></div>
+                <div style={{...(favorite ? heartFilled : heartEmpty), ...(isHovered ? heartFilled : '')}} className="cats__cat-heart" onMouseEnter={handleHover} onMouseLeave={handleUnhover} onClick={() => handleClick(id, url)}></div>
             </div>
         </>
     )
